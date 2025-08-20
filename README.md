@@ -4,6 +4,7 @@
 
 ## 📚 Ссылки на уроки:
 * [Уроки JavaScript для начинающих с нуля!](https://youtube.com/playlist?list=PLDyJYA6aTY1kJIwbYHzGOuvSMNTfqksmk&si=tmnSlx2kpAnKZBWC)
+* [React JS c Нуля – ПОЛНЫЙ Курс для начинающих (2025)](https://www.youtube.com/watch?v=kz23xxukY5s)
 
 ## 🤔 Что это?
 **Scripture** — мой личный репозиторий, где я практикуюсь в JavaScript и TypeScript.  
