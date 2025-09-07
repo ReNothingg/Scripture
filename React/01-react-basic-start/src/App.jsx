@@ -1,9 +1,23 @@
 import Header from "./components/Header"
 import WayToTeach from "./components/WayToTeach"
 import Button from "./components/Button/Button"
-import {ways} from './data'
+import { useState } from "react"
+import {ways, differences} from './data'
 
 export default function App() {
+  const [contentType, setContentType] = useState(null)
+
+  function handleClick(type) {
+    setContentType(type)
+  }
+
+  // let tabContent = null
+  // if (contentType) {
+  //   tabContent = <p>{differences[contentType]}</p>
+  // } else {
+  //   tabContent = <p>Нажмите на кнопу что бы увидеть информацию</p>
+  // }
+
   return (
     <div>
       <Header />
@@ -14,7 +28,12 @@ export default function App() {
           <p>Wow! Absolutely! Я хочу есть...</p>
 
           <ul>
-            <WayToTeach
+            {ways.map((way) =>
+            (
+              <WayToTeach {...way}/>
+            ))}
+
+            {/* <WayToTeach
               title='Mango'
               description='222'
             />
@@ -22,7 +41,7 @@ export default function App() {
               title={ways[0].title}
               description={ways[0].description}
             />
-            <WayToTeach {...ways[1]} />
+            <WayToTeach {...ways[1]} /> */}
           </ul>
         </section>
         <selection>
@@ -31,15 +50,32 @@ export default function App() {
           {/* <Button text='Button 1' />
           <Button text='Button 2' /> */}
 
+{/*
           <Button>
             <span>
               <h3>
                 Text 1
               </h3>
             </span>
-          </Button>
+          </Button> */}
+          {/* {contentType ? (
+            <p>{differences[contentType]}</p>
+          ) : (
+            <p>Нажмите на кнопу что бы увидеть информацию</p>
+          )} */}
 
-          <Button>Text 2</Button>
+          {/* {!contentType ? <p>Нажмите на кнопу что бы увидеть информацию</p> : null}
+          {contentType ? <p>{differences[contentType]}</p> : null} */}
+
+          <Button isActive={contentType === 'way'} onClick={() => handleClick('way')}>way</Button>
+          <Button isActive={contentType === 'easy'}  onClick={() => handleClick('easy')}>easy</Button>
+          <Button isActive={contentType === 'program'}  onClick={() => handleClick('program')}>program</Button>
+
+
+          {!contentType && <p>Нажмите на кнопу что бы увидеть информацию</p>}
+          {contentType && <p>{differences[contentType]}</p>}
+
+          {/* {tabContent} */}
         </selection>
       </main>
     </div>
